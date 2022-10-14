@@ -4,8 +4,8 @@ from pathlib import Path
 
 class Site:
     def __init__(self, source, dest):
-        self._source = Path()
-        self._dest = Path()
+        self._source = Path(source)
+        self._dest = Path(source)
 
     def create_dir(self, path):
         directory = self._dest / Path.relative_to(self._source)
