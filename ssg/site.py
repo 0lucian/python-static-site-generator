@@ -1,4 +1,3 @@
-from genericpath import isdir
 from pathlib import Path
 
 
@@ -8,12 +7,12 @@ class Site:
         self._dest = Path(source)
 
     def create_dir(self, path):
-        directory = self._dest / Path.relative_to(self._source)
+        directory = self._dest / path.relative_to(self._source)
         directory.mkdir(parents=True, exist_ok=True)
 
     def build(self):
         self._dest.mkdir(parents=True, exist_ok=True)
 
         for path in self._source.rglob("*"):
-            if path.isdir():
+            if path.is_dir():
                 self.create_dir(path)
