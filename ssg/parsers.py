@@ -44,8 +44,8 @@ class MarkdownParser(Parser):
 
         html = markdown(content.body)
         self.write(path, dest, html)
-        sys.stdout.write("\x1b[1;32m{} converted to HTML. Metadata: {}\n").format(
-            path.name, content)
+        sys.stdout.write("\x1b[1;32m{} converted to HTML. Metadata: {}\n".format(
+            path.name, content))
 
 
 class ReStructuredTextParser(Parser):
@@ -56,4 +56,4 @@ class ReStructuredTextParser(Parser):
         html = publish_parts(content.body, writer_name="html5")
         self.write(path, dest, html["hmtl_body"])
         sys.stdout.write(
-            "\x1b[1;32m{} converted to HTML. Metadata: {}\n").format(path.name)
+            "\x1b[1;32m{} converted to HTML. Metadata: {}\n".format(path.name))
